@@ -1,22 +1,22 @@
 ﻿partial class Program
 {
-    static int[] ReadNumbers(uint numarVariabile)
+    static int[] ReadNumbers(in uint NUMAR_VARIABILE)
     {
-        Console.WriteLine($"Introduceti {numarVariabile} numere pentru a le sorta descrescator");
-        var numere = new int[numarVariabile];
+        Console.WriteLine($"Introduceti {NUMAR_VARIABILE} numere pentru a le sorta descrescator");
+        var numere = new int[NUMAR_VARIABILE];
         var numereRaw = Console.ReadLine()?.Split(" ");
-        if (numereRaw?.Length == numarVariabile) { 
+        if (numereRaw?.Length == NUMAR_VARIABILE) { 
             for (int i = 0; i < numereRaw.Length; i++)
                 if (!int.TryParse(numereRaw[i], out numere[i]))
                 {
                     Console.WriteLine("Nu ati introdus datele in format valid, mai incercati");
-                    ReadNumbers(numarVariabile);
+                    ReadNumbers(NUMAR_VARIABILE);
                 } 
         }
         else
         {
             Console.WriteLine("Nu ati introdus datele in format valid, mai incercati");
-            ReadNumbers(numarVariabile);
+            ReadNumbers(NUMAR_VARIABILE);
         }
         return numere;
     }
