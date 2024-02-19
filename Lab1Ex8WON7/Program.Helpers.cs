@@ -1,4 +1,6 @@
-﻿partial class Program
+﻿using System.Buffers;
+
+partial class Program
 {
     static int[] ReadNumbers(in uint NUMAR_VARIABILE)
     {
@@ -22,8 +24,7 @@
     }
     static int[] SortDescending(int[] numere)
     {
-        Array.Sort(numere);
-        Array.Reverse(numere);
+        numere=numere.OrderDescending().ToArray<int>();
         return numere;
     }
     static void ShowNumbers(int[] numere)
